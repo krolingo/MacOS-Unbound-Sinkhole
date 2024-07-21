@@ -625,7 +625,7 @@ server:
 
 ## unbound.conf (with NSD)
 
-This here is what your unbound.conf should look like if you have `NSD` also configured and you wish to resolve the zones setup on `nsd` though `unbound` If anyone shows interest, I will write the tutorial for NSD as well.
+This here is what your unbound.conf should look like if you have `NSD` also configured and you wish to resolve the local zones setup on there though `unbound`.
 
 ```apache
 server:
