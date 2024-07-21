@@ -118,8 +118,8 @@ doas unbound-control-setup
 | MacPorts     | commands              |
 | -------------- | ----------------------- |
 | ▶️**Load** | `port load unbound`   |
-| ⏹**Unload** | `port unload unbound` |
-| ⏯**Reload** | `port reload unbound` |
+| ⏹ **Unload** | `port unload unbound` |
+| ⏯ **Reload** | `port reload unbound` |
 
 ## remote-control:
 
