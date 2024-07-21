@@ -494,8 +494,8 @@ Results should look as follows:
 -rw-rw-r--   1 unbound  unbound      253 Jul 21 14:47 unbound.log.1.bz2
 -rw-r--r--   1 unbound  unbound  1067260 Jul 21 14:44 unbound.log.2.bz2
 ```
-# Example configuration
-## unbound.conf
+## Example configuration
+### unbound.conf
 
 ```apache
 server:
