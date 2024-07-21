@@ -1,4 +1,4 @@
-# *CLEANED* Unbound (sinkhole) on a 🍏 Mac V.2
+# Unbound (sinkhole) on a 🍏 Mac V.2
 
 ## Introduction to Setting Up Unbound (Sinkhole) on a Mac
 
