@@ -629,72 +629,70 @@ Here is what your unbound.conf should look like if you have `NSD` configured and
 
 ```apache
 server:
-
-	verbosity: 1
+    verbosity: 1
     interface: 0.0.0.0
-	port: 53
-	num-threads: 4
+    port: 53
+    num-threads: 4
 
-	# buffer size for UDP port 53 incoming (SO_RCVBUF socket option).
-	# 0 is system default. Use 4m to catch query spikes for busy servers.
-	so-rcvbuf: 1m
+    # buffer size for UDP port 53 incoming (SO_RCVBUF socket option).
+    # 0 is system default. Use 4m to catch query spikes for busy servers.
+    so-rcvbuf: 1m
 
-	# buffer size for UDP port 53 outgoing (SO_SNDBUF socket option).
-	# 0 is system default. Use 4m to handle spikes on very busy servers.
-	so-sndbuf: 1m 
+    # buffer size for UDP port 53 outgoing (SO_SNDBUF socket option).
+    # 0 is system default. Use 4m to handle spikes on very busy servers.
+    so-sndbuf: 1m
 
-	# the amount of memory to use for the message cache.
-	# plain value in bytes or you can append k, m or G. default is "4Mb". 
-	msg-cache-size: 128m
+    # the amount of memory to use for the message cache.
+    # plain value in bytes or you can append k, m or G. default is "4Mb".
+    msg-cache-size: 128m
 
-	# the amount of memory to use for the RRset cache.
- 	# plain value in bytes or you can append k, m or G. default is "4Mb". 
-	rrset-cache-size: 256m
+    # the amount of memory to use for the RRset cache.
+    # plain value in bytes or you can append k, m or G. default is "4Mb".
+    rrset-cache-size: 256m
 
-	do-ip4: yes
-	do-ip6: yes
-	do-udp: yes
-	do-tcp: yes
-	access-control: ::ffff:127.0.0.1 allow
-	access-control: 192.168.40.0/24 allow
-	access-control: 172.40.0.0/24 allow
-	access-control: 10.0.2.0/24 allow
-	chroot: "/opt/local/etc/unbound"
-	username: "unbound"
-	directory: "/opt/local/etc/unbound"
-	logfile: "/opt/local/etc/unbound/log/unbound.log"
-	log-identity: "435-Office-PA-iMac11"
-	log-time-ascii: yes
-	log-queries: yes
-	log-replies: yes
-	log-servfail: yes
-    	extended-statistics: yes
-	pidfile: "/opt/local/etc/unbound/unbound.pid"
-	hide-identity: yes
-	hide-version: yes
-	qname-minimisation: yes
-	auto-trust-anchor-file: "/opt/local/etc/unbound/root.key"
-	unblock-lan-zones: yes
-	insecure-lan-zones: yes
-	local-zone: "example.com" redirect
-	local-data: "example.com A 192.0.2.3"
+    do-ip4: yes
+    do-ip6: yes
+    do-udp: yes
+    do-tcp: yes
+    access-control: ::ffff:127.0.0.1 allow
+    access-control: 192.168.40.0/24 allow
+    access-control: 172.40.0.0/24 allow
+    access-control: 10.0.2.0/24 allow
+    chroot: "/opt/local/etc/unbound"
+    username: "unbound"
+    directory: "/opt/local/etc/unbound"
+    logfile: "/opt/local/etc/unbound/log/unbound.log"
+    log-identity: "435-Office-PA-iMac11"
+    log-time-ascii: yes
+    log-queries: yes
+    log-replies: yes
+    log-servfail: yes
+    extended-statistics: yes
+    pidfile: "/opt/local/etc/unbound/unbound.pid"
+    hide-identity: yes
+    hide-version: yes
+    qname-minimisation: yes
+    auto-trust-anchor-file: "/opt/local/etc/unbound/root.key"
+    unblock-lan-zones: yes
+    insecure-lan-zones: yes
+    local-zone: "example.com" redirect
+    local-data: "example.com A 192.0.2.3"
 
-    ## directive for ad-blocking .conf files 
-	include: /opt/local/etc/unbound/conf.d/*.conf 
-  
-	private-domain: "comtosoone.com"
-	private-domain: "comptosogenius.com"
-	private-domain: "mccomtoso.com"
-	private-domain: "supercomtoso.com"
-	do-not-query-localhost: no
+    ## directive for ad-blocking .conf files
+    include: /opt/local/etc/unbound/conf.d/*.conf
 
-##   The domains are internal to an organization and do not require DNSSEC validation.
-#### Important? ## Yes Otherwise DNSKEY Errors
-#### validation failure <genius2go.com. A IN>: No DNSKEY record from 10.122.123.53 for key genius2go.com. while building chain of trust   
-#### Ignore chain of trust. Domain is treated as insecure.
+    private-domain: "comtosoone.com"
+    private-domain: "comptosogenius.com"
+    private-domain: "mccomtoso.com"
+    private-domain: "supercomtoso.com"
+    do-not-query-localhost: no
 
+    ## The domains are internal to an organization and do not require DNSSEC validation.
+    #### Important? Yes Otherwise DNSKEY Errors
+    #### validation failure <genius2go.com. A IN>: No DNSKEY record from 10.122.123.53 for key genius2go.com. while building chain of trust
+    #### Ignore chain of trust. Domain is treated as insecure.
     domain-insecure: "exampledomain1.com"
-    domain-insecure: "192.168.0.10.in-addr.arpa" 
+    domain-insecure: "192.168.0.10.in-addr.arpa"
     domain-insecure: "10.10.10.10.in-addr.arpa"
     domain-insecure: "0.10.10.10.in-addr.arpa"
     domain-insecure: "exampledomain2.com"
@@ -707,122 +705,115 @@ server:
     domain-insecure: "superexample"
     domain-insecure: "172.16.0.10.in-addr.arpa"
 
-
     tls-cert-bundle: "/opt/local/share/curl/curl-ca-bundle.crt"
 
-	# Enable remote control with unbound-control(8) here.
-	# set up the keys and certificates with unbound-control-setup.
-
+    # Enable remote control with unbound-control(8) here.
+    # set up the keys and certificates with unbound-control-setup.
     remote-control:
+        control-enable: yes
 
-	control-enable: yes
+        # what interfaces are listened to for remote control.
+        # give 0.0.0.0 and ::0 to listen to all interfaces.
+        # set to an absolute path to use a unix local name pipe, certificates
+        # are not used for that, so key and cert files need not be present.
+        control-interface: 127.0.0.1
 
-	# what interfaces are listened to for remote control.
-	# give 0.0.0.0 and ::0 to listen to all interfaces.
-	# set to an absolute path to use a unix local name pipe, certificates
-	# are not used for that, so key and cert files need not be present.
+        # control-interface: ::1
 
-	control-interface: 127.0.0.1
+        # port number for remote control operations.
+        control-port: 8953
 
-	# control-interface: ::1
+        # for localhost, you can disable use of TLS by setting this to "no"
+        # For local sockets this option is ignored, and TLS is not used.
+        # control-use-cert: "yes"
 
-	# port number for remote control operations.
+        # Unbound server key file.
+        server-key-file: "/opt/local/etc/unbound/unbound_server.key"
 
-	control-port: 8953
+        # Unbound server certificate file.
+        server-cert-file: "/opt/local/etc/unbound/unbound_server.pem"
 
-	# for localhost, you can disable use of TLS by setting this to "no"
-	# For local sockets this option is ignored, and TLS is not used.
-	# control-use-cert: "yes"
+        # unbound-control key file.
+        control-key-file: "/opt/local/etc/unbound/unbound_control.key"
 
-	# Unbound server key file.
-	server-key-file: "/opt/local/etc/unbound/unbound_server.key"
+        # unbound-control certificate file.
+        control-cert-file: "/opt/local/etc/unbound/unbound_control.pem"
 
-	# Unbound server certificate file.
-	server-cert-file: "/opt/local/etc/unbound/unbound_server.pem"
+    forward-zone:
+        name: "."
+        forward-tls-upstream: yes
+        # Cloudflare DNS
+        forward-addr: 2606:4700:4700::1112@853#cloudflare-dns.com
+        forward-addr: 1.1.1.2@853#cloudflare-dns.com
+        forward-addr: 2606:4700:4700::1002@853#cloudflare-dns.com
+        forward-addr: 1.0.0.2@853#cloudflare-dns.com
 
-	# unbound-control key file.
-	control-key-file: "/opt/local/etc/unbound/unbound_control.key"
-
-	# unbound-control certificate file.
-	control-cert-file: "/opt/local/etc/unbound/unbound_control.pem"
-
-	forward-zone:
-	name: "."
-
-	forward-tls-upstream: yes
-	# Cloudflare DNS
-    forward-addr: 2606:4700:4700::1112@853#cloudflare-dns.com
-    forward-addr: 1.1.1.2@853#cloudflare-dns.com
-    forward-addr: 2606:4700:4700::1002@853#cloudflare-dns.com
-    forward-addr: 1.0.0.2@853#cloudflare-dns.com
-
-	# Cloud9
-    forward-addr: 9.9.9.9@853#dns.quad9.net
-    forward-addr: 2620:fe::fe@853#dns.quad9.net
-
-
+        # Cloud9
+        forward-addr: 9.9.9.9@853#dns.quad9.net
+        forward-addr: 2620:fe::fe@853#dns.quad9.net
 
 ################    exampledomain1     #####################################
 
     stub-zone:
-     name: "exampledomain1.com"
-     stub-addr: 192.168.0.1@5053
+        name: "exampledomain1.com"
+        stub-addr: 192.168.0.1@5053
 
     stub-zone:
-     name: "10.0.0.10.in-addr.arpa."
-     stub-addr: 192.168.0.1@5053
+        name: "10.0.0.10.in-addr.arpa."
+        stub-addr: 192.168.0.1@5053
 
     stub-zone:
-     name: "0.10.0.10.in-addr.arpa."
-     stub-addr: 192.168.0.1@5053
+        name: "0.10.0.10.in-addr.arpa."
+        stub-addr: 192.168.0.1@5053
 
 ################    exampledomain2      #####################################
 
     stub-zone:
-     name: "exampledomain2.com"
-     stub-addr: 192.168.0.1@5053
+        name: "exampledomain2.com"
+        stub-addr: 192.168.0.1@5053
 
 ################    exampledomain3     #####################################
 
     stub-zone:
-     name: "exampledomain3.com"
-     stub-addr: 192.168.0.1@5053
+        name: "exampledomain3.com"
+        stub-addr: 192.168.0.1@5053
 
     stub-zone:
-     name: "10.0.0.10.in-addr.arpa"
-     stub-addr: 192.168.0.1@5053
+        name: "10.0.0.10.in-addr.arpa"
+        stub-addr: 192.168.0.1@5053
 
     stub-zone:
-     name: "67.168.192.in-addr.arpa"
-     stub-addr: 192.168.0.1@5053
+        name: "67.168.192.in-addr.arpa"
+        stub-addr: 192.168.0.1@5053
 
 ################   exampledomain4    #####################################
 
     stub-zone:
-     name: "exampledomain4.com"
-     stub-addr: 192.168.0.1@5053
+        name: "exampledomain4.com"
+        stub-addr: 192.168.0.1@5053
 
     stub-zone:
-     name: "10.0.0.10.in-addr.arpa."
-     stub-addr: 192.168.0.1@5053
+        name: "10.0.0.10.in-addr.arpa."
+        stub-addr: 192.168.0.1@5053
 
     stub-zone:
-     name: "19.0.0.in-addr.arpa."
-     stub-addr: 192.168.0.1@5053
+        name: "19.0.0.in-addr.arpa."
+        stub-addr: 192.168.0.1@5053
 
     stub-zone:
-     name: "0.127.0.in-addr.arpa."
-     stub-addr: 192.168.0.1@5053
+        name: "0.127.0.in-addr.arpa."
+        stub-addr: 192.168.0.1@5053
 
 ################   exampledomain5     ###############################
 
     stub-zone:
-     name: "exampledomain5.com"
-     stub-addr: 192.168.0.1@5053
+        name: "exampledomain5.com"
+        stub-addr: 192.168.0.1@5053
 
     stub-zone:
-     name: "87.0.0.in-addr.arpa"
-     stub-addr: 192.168.0.1@5053
+        name: "87.0.0.in-addr.arpa"
+        stub-addr: 192.168.0.1@5053
+
 ```
 
 ## Log view
