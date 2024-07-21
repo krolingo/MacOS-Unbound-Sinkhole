@@ -418,6 +418,8 @@ And indeed it was working as intended.
 
 ## LOG ROTATION
 
+IMPORTANT: if you enabled and configured unbound logs you must rotate them.
+
 Install logrotate from MacPorts
 
 ```sh
