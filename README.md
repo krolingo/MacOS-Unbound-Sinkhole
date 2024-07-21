@@ -817,4 +817,5 @@ server:
 ```
 
 ## Log view
+Vieweing the logs with lnav
 <img src="./content/lnav_screen.png" alt="Rocket on a motorcycle" width="800">
