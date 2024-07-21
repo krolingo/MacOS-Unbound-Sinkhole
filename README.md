@@ -260,6 +260,9 @@ RECIPE=master WITH_IPV6=false /opt/local/etc/unbound/entrypoint.sh > /opt/local/
 </plist>
 ```
 
+Then to load run:
+`doas launchctl load /Library/LaunchDaemons/org.adblock-refresh.plist`
+
 ## 📜 Another way: Use Periodic Daily for Ad-Blocking updates
 
 We can generate the ad block list a different way that doesn't involve creating a `launchd` script with a simple periodic script.
