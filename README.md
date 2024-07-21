@@ -665,7 +665,7 @@ server:
 	log-queries: yes
 	log-replies: yes
 	log-servfail: yes
-    extended-statistics: yes
+    	extended-statistics: yes
 	pidfile: "/opt/local/etc/unbound/unbound.pid"
 	hide-identity: yes
 	hide-version: yes
