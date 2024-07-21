@@ -48,7 +48,7 @@ As of this writing "`v.2`" I downloaded the ventura package with brew's wget (ye
 
 ## Install opendoas
 
-These days opendoas`is preferred over`sudo` for its simplicity and ease of configuration. Install it via MacPorts:
+These days I hear opendoas is preferred over `sudo` for its simplicity and ease of configuration. Install it via MacPorts:
 
 ```port install opendoas ```
 **Configure `opendoas`:**
