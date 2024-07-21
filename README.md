@@ -825,3 +825,5 @@ server:
      stub-addr: 192.168.0.1@5053
 ```
 
+## Log view
+<img src="./content/lnav_screen.png" alt="Rocket on a motorcycle" width="500">
