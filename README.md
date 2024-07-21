@@ -535,7 +535,7 @@ server:
 	log-queries: yes
 	log-replies: yes
 	log-servfail: yes
-    extended-statistics: yes
+        extended-statistics: yes
 	pidfile: "/opt/local/etc/unbound/unbound.pid"
 	hide-identity: yes
 	hide-version: yes
@@ -593,6 +593,7 @@ server:
 	name: "."
 
 	forward-tls-upstream: yes
+
     # Cloudflare DNS Malware
 #    forward-addr: 2606:4700:4700::1112@853#cloudflare-dns.com
 #    forward-addr: 1.1.1.2@853#cloudflare-dns.com
