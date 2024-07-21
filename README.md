@@ -73,7 +73,7 @@ permit nopass :admin
 ```
 
 ## Install Unbound
-
+To setup unmound on FreeBSD I used this tutorial: https://loga.us/2014/08/03/unbound-caching-and-nsd-local-authoritative-master-slave-dns-server-part-1/
 When I was looking for a way to run unbound on a mac I found this site: https://brianreiter.org/2020/06/24/encrypting-dns-on-macos-with-unbound-and-cloudflare which was a good start.
 
 ```sh
