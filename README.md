@@ -533,7 +533,7 @@ server:
 	username: "unbound"
 	directory: "/opt/local/etc/unbound"
 	logfile: "/opt/local/etc/unbound/log/unbound.log"
-	log-identity: "435-Office-PA-iMac11"
+	log-identity: "469-Office-PDA-iMac11"
 	log-time-ascii: yes
 	log-queries: yes
 	log-replies: yes
